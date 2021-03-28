@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Async/Await in Swift</title>
+
+  <link rel="canonical" href="https://async-await-in-swift.netlify.app/">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    body {
+      background-color: #F5F5F5;
+      color: #333333;
+    }
+
+    .fa.fa-github {
+      color: #999999;
+    }
+
+    .code-snippet-sm {
+      width: 100%;
+      height: 360px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      .code-snippet-sm {
+        width: 100%;
+        height: 720px;
+      }
+    }
+
+    .code-snippet-md {
+      width: 100%;
+      height: 440px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      .code-snippet-md {
+        width: 100%;
+        height: 880px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="col-lg-8 mx-auto p-3 py-md-5">
+    <h1>Async/Await in Swift</h1>
+
+    <p class="mt-4 lead">
+      Async/Await allow asynchronous code to be written as straight-line code.
+    </p>
+
+    <h3 class="mt-4">Covert callbacks to async/await</h3>
+
+    <div class="row mt-3">
+      <p class="fs-5 col-md-8 lead">
+        If you write code that makes a series of such asynchronous calls in a callback-based API, you will easily fall
+        into callback hell.
+      </p>
+
+      <iframe class="code-snippet-md"
+        src="https://swiftfiddle.com/zhpd7nfi55hydkhcizl42aqaey/embedded/?fold=77-78&fold=83-84"
+        frameborder="0"></iframe>
+    </div>
+
+    <div class="row mt-4">
+      <p class="fs-5 col-md-8 lead">
+        Refactoring the code using <code>async/await</code>, it can be written in a clear and straightforward manner
+        as follows.
+      </p>
+
+      <iframe class="code-snippet-sm"
+        src="https://swiftfiddle.com/g4h5qht5cjaqndrwcxqcie7ffm/embedded/?fold=57-58&fold=61-62"
+        frameborder="0"></iframe>
+    </div>
+
+    <h3 class="mt-4">Call <code>async/await</code> functions in parallel</h3>
+
+    <div class="row mt-3">
+      <p class="fs-5 col-md-8 lead">
+        The following code executes each <code>fetchTodoDetail(id:)</code> function sequentially.
+      </p>
+
+      <iframe class="code-snippet-sm"
+        src="https://swiftfiddle.com/xmmnogbrybhs5ekd2fws3bwhry/embedded/?fold=58-59&fold=62-63"
+        frameborder="0"></iframe>
+    </div>
+
+    <div class="row mt-4">
+      <p class="fs-5 col-md-8 lead">
+        To call each <code>fetchTodoDetail(id:)</code> function in parallel, use <code>async let</code> to defer the
+        calls, then use <code>await</code> to resolve the values in later lines. They will be executed in parallel at
+        the line with the <code>await</code>.
+      </p>
+
+      <iframe class="code-snippet-sm"
+        src="https://swiftfiddle.com/wy64pzazgvgdvjay7ehfi24kwu/embedded/?fold=58-59&fold=62-63"
+        frameborder="0"></iframe>
+    </div>
+
+    <footer class="pt-5 my-5 text-muted border-top">
+      <div style="text-align: center;">
+        <a href="https://github.com/kishikawakatsumi/async-await-in-swift"><i class="fa fa-github fa-2x"></i></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+  </script>
+  <script src="https://kit.fontawesome.com/108aa91541.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
